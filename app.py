@@ -172,8 +172,9 @@ def chatbot():
 def shutdown_session(exception=None):
     db.session.remove()
 
-
-
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 if __name__ == '__main__':
     with app.app_context():
