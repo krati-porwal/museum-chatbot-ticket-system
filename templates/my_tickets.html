@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}My Tickets - MuseumHub{% endblock %}
+
+{% block content %}
+<h2 class="mb-4"><i class="fas fa-ticket-alt"></i> My Tickets</h2>
+<div class="modern-grid">
+    {% for ticket in tickets %}
+    <div class="modern-card exhibit-card">
+        <h4>{{ ticket.name }}</h4>
+        <p><strong>Age:</strong> {{ ticket.age }}</p>
+        <p><strong>Email:</strong> {{ ticket.email }}</p>
+        <form method="post" action="{{ url_for('delete_ticket', ticket_id=ticket.id) }}" style="margin-top: 1rem;">
+            <button type="submit" class="modern-btn logout">
+                <i class="fas fa-trash"></i> Delete
+            </button>
+        </form>
+    </div>
+    {% else %}
+    <div class="modern-card">
+        <p>No tickets booked yet.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

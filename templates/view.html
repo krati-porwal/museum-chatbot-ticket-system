@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}Exhibits - MuseumHub{% endblock %}
+
+{% block content %}
+<!-- Add model-viewer script -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<h2 class="mb-4"><i class="fas fa-eye"></i> Explore 3D Exhibits</h2>
+<div class="modern-grid">
+    <div class="modern-card exhibit-card">
+        <h4>Dinosaur Sculpture</h4>
+        <model-viewer src="{{ url_for('static', filename='models/dinasaur.glb') }}" 
+                      alt="Dinosaur Sculpture"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Marvel at the intricate details of this prehistoric masterpiece.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Phoenix Bird</h4>
+        <model-viewer src="{{ url_for('static', filename='models/phoenix_bird.glb') }}" 
+                      alt="Phoenix Bird"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Discover the mythical phoenix in stunning 3D detail.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Wooden Bicycle</h4>
+        <model-viewer src="{{ url_for('static', filename='models/wooden_bicycle.glb') }}" 
+                      alt="Wooden Bicycle"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Explore this unique wooden bicycle from our collection.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Dodo Bird (Extinct)</h4>
+        <model-viewer src="{{ url_for('static', filename='models/dodo.glb') }}" 
+                      alt="Dodo Bird"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Experience the extinct dodo bird in 3D.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Black & White TV</h4>
+        <model-viewer src="{{ url_for('static', filename='models/black and white blewder tv.glb') }}" 
+                      alt="Black and White TV"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Step back in time with this vintage television.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Lion Skull</h4>
+        <model-viewer src="{{ url_for('static', filename='models/lion_skull.glb') }}" 
+                      alt="Lion Skull"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Examine the powerful lion skull up close.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Nefertiti Bust</h4>
+        <model-viewer src="{{ url_for('static', filename='models/nefertitis.glb') }}" 
+                      alt="Nefertiti Bust"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Ancient Egyptian beauty in stunning detail.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Exakta Camera</h4>
+        <model-viewer src="{{ url_for('static', filename='models/exakta_varex_vx_camera.glb') }}" 
+                      alt="Exakta Camera"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Vintage photography technology preserved in 3D.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Arrau Turtle</h4>
+        <model-viewer src="{{ url_for('static', filename='models/arrau turtle.glb') }}" 
+                      alt="Arrau Turtle"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Ancient turtle species in remarkable detail.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Amenemhat III</h4>
+        <model-viewer src="{{ url_for('static', filename='models/amenemhat_iii.glb') }}" 
+                      alt="Amenemhat III"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Egyptian pharaoh sculpture from ancient times.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Egyptian Coffins</h4>
+        <model-viewer src="{{ url_for('static', filename='models/coffins.glb') }}" 
+                      alt="Egyptian Coffins"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Ancient Egyptian burial artifacts in 3D.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Daoist Immortal</h4>
+        <model-viewer src="{{ url_for('static', filename='models/daoist_immortal_he_xiangu.glb') }}" 
+                      alt="Daoist Immortal"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Chinese Daoist immortal sculpture.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Roza Loewenfeld Bust</h4>
+        <model-viewer src="{{ url_for('static', filename='models/sculpture_bust_of_roza_loewenfeld.glb') }}" 
+                      alt="Roza Loewenfeld Bust"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Classical sculpture bust in exquisite detail.</p>
+    </div>
+    
+    <div class="modern-card exhibit-card">
+        <h4>Durga Goddess (10th Century)</h4>
+        <model-viewer src="{{ url_for('static', filename='models/durga_slaying_the_buffalo_demon_10th_century_cr..glb') }}" 
+                      alt="Durga Goddess"
+                      auto-rotate 
+                      camera-controls 
+                      background-color="transparent"
+                      style="width: 100%; height: 300px; border-radius: 15px;">
+        </model-viewer>
+        <p>Ancient Hindu goddess statue from the 10th century.</p>
+    </div>
+</div>
+{% endblock %}
