@@ -5,12 +5,16 @@ import stripe
 from flask_cors import CORS
 from models import db  # Import the db from model.py
 from chatbot import get_chatbot_response
+import os
 
 
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://museum_user:krati123@localhost:5432/museum_chatbot'   #try to host a postgresql databse for better and fast response
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
+    "DATABASE_URL",
+    "postgresql+psycopg2://museum_user:krati123@localhost:5432/museum_chatbot"
+)
 app.config['STRIPE_PUBLIC_KEY'] = 'your_stripe_public_key'
 app.config['STRIPE_SECRET_KEY'] = 'your_stripe_secret_key'
 
