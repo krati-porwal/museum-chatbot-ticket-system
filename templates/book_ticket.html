@@ -3,22 +3,22 @@
 {% block title %}Book Ticket - MuseumHub{% endblock %}
 
 {% block content %}
-<div class="modern-form">
-    <h2 class="text-center mb-4"><i class="fas fa-ticket-alt"></i> Book Your Ticket</h2>
+<div class="modern-form" style="max-width: 480px; margin: 3em auto; background: rgba(255,255,255,0.15); box-shadow: 0 8px 32px rgba(118,75,162,0.15); border-radius: 24px; padding: 2.5em;">
+    <h2 class="text-center mb-4" style="text-align: center; color: #764ba2; font-size: 2em; font-weight: 700; margin-bottom: 1em;"><i class="fas fa-ticket-alt"></i> Book Your Ticket</h2>
     <form method="post">
-        <div class="form-group">
-            <label class="form-label" for="name">Name</label>
-            <input class="form-input" type="text" id="name" name="name" required>
+        <div class="form-group" style="margin-bottom: 1.5em;">
+            <label class="form-label" for="name" style="color: #764ba2; font-weight: 600;">Name</label>
+            <input class="form-input" type="text" id="name" name="name" required style="background: #f5f5fa; color: #222; border: 1px solid #764ba2; border-radius: 12px; padding: 1em;">
         </div>
-        <div class="form-group">
-            <label class="form-label" for="age">Age</label>
-            <input class="form-input" type="number" id="age" name="age" min="1" required>
+        <div class="form-group" style="margin-bottom: 1.5em;">
+            <label class="form-label" for="age" style="color: #764ba2; font-weight: 600;">Age</label>
+            <input class="form-input" type="number" id="age" name="age" min="1" required style="background: #f5f5fa; color: #222; border: 1px solid #764ba2; border-radius: 12px; padding: 1em;">
         </div>
-        <div class="form-group">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-input" type="email" id="email" name="email" required>
+        <div class="form-group" style="margin-bottom: 1.5em;">
+            <label class="form-label" for="email" style="color: #764ba2; font-weight: 600;">Email</label>
+            <input class="form-input" type="email" id="email" name="email" required style="background: #f5f5fa; color: #222; border: 1px solid #764ba2; border-radius: 12px; padding: 1em;">
         </div>
-        <button type="submit" class="modern-btn primary w-100 mt-3">
+        <button type="submit" class="modern-btn primary w-100 mt-3" style="background: linear-gradient(90deg, #764ba2 0%, #f093fb 100%); color: #fff; font-weight: 600; font-size: 1.1em; padding: 0.8em 2em; border-radius: 30px; box-shadow: 0 4px 16px rgba(118,75,162,0.15); width: 100%;">
             <i class="fas fa-paper-plane"></i> Book Ticket
         </button>
     </form>

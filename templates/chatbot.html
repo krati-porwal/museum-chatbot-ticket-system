@@ -3,12 +3,12 @@
 {% block title %}AI Chatbot - MuseumHub{% endblock %}
 
 {% block content %}
-<div class="chatbot-container">
-    <h2 class="mb-3"><i class="fas fa-robot"></i> AI Chatbot</h2>
-    <div id="chat-messages" class="chat-messages"></div>
-    <form id="chat-form" class="chat-input" autocomplete="off">
-        <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" required />
-        <button type="submit" class="modern-btn primary"><i class="fas fa-paper-plane"></i></button>
+<div class="chatbot-container" style="max-width: 540px; margin: 3em auto; background: rgba(255,255,255,0.15); box-shadow: 0 8px 32px rgba(118,75,162,0.15); border-radius: 24px; padding: 2em;">
+    <h2 class="mb-3" style="text-align: center; color: #764ba2; font-size: 2em; font-weight: 700; margin-bottom: 1em;"><i class="fas fa-robot"></i> AI Chatbot</h2>
+    <div id="chat-messages" class="chat-messages" style="min-height: 320px; max-height: 320px; overflow-y: auto; background: #f5f5fa; border-radius: 18px; padding: 1em; margin-bottom: 1.5em; box-shadow: 0 2px 8px rgba(118,75,162,0.08);"></div>
+    <form id="chat-form" class="chat-input" autocomplete="off" style="display: flex; gap: 0.7em;">
+        <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" required style="flex: 1; background: #fff; color: #222; border: 1px solid #764ba2; border-radius: 18px; padding: 0.8em 1.2em; font-size: 1em;">
+        <button type="submit" class="modern-btn primary" style="background: linear-gradient(90deg, #764ba2 0%, #f093fb 100%); color: #fff; font-weight: 600; font-size: 1.1em; padding: 0.8em 1.2em; border-radius: 18px; box-shadow: 0 2px 8px rgba(118,75,162,0.08);"><i class="fas fa-paper-plane"></i></button>
     </form>
 </div>
 <script>

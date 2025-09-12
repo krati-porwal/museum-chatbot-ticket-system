@@ -37,31 +37,29 @@
             border-radius: 15px;
             transition: all 0.3s ease;
         }
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .language-switcher a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
         .language-switcher a:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.1);
         }
-    </style>
-</head>
-<body>
-    <!-- 3D Background Canvas -->
-    <canvas id="bg-canvas"></canvas>
-    
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <a href="{{ url_for('set_locale', locale='en') }}">EN</a>
-        <a href="{{ url_for('set_locale', locale='fr') }}">FR</a>
-    </div>
-
-    <!-- Modern Navigation -->
-    <nav class="modern-nav">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <i class="fas fa-museum"></i>
-                <span>MuseumHub</span>
-            </div>
-            
-            <div class="nav-menu">
                 <a href="{{ url_for('home') }}" class="nav-link">
                     <i class="fas fa-home"></i>
                     <span>Home</span>
