@@ -5,6 +5,16 @@
 {% block content %}
 <div class="chatbot-container">
     <h2 class="mb-3"><i class="fas fa-robot"></i> AI Chatbot</h2>
+    <div class="quick-buttons" style="margin-bottom:10px; display:flex; flex-wrap:wrap; gap:6px;">
+    <button type="button" class="qb" id="bookRedirect">🎟 Book Ticket</button>
+        <button type="button" class="qb" data-msg="my bookings">📖 My Bookings</button>
+        <button type="button" class="qb" data-cancel="true">❌ Cancel Ticket</button>
+        <button type="button" class="qb" data-msg="pricing">💰 Pricing</button>
+        <button type="button" class="qb" data-msg="timings">📅 Museum Timings</button>
+        <button type="button" class="qb" data-msg="policies">📜 Policies</button>
+    <button type="button" class="qb" data-msg="guidelines">📘 Guidelines</button>
+        <button type="button" class="qb" data-msg="help">👋 Help</button>
+    </div>
     <div id="chat-messages" class="chat-messages"></div>
     <form id="chat-form" class="chat-input" autocomplete="off">
         <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" required />
@@ -15,6 +25,7 @@
 // Simple AJAX chat logic
 const chatForm = document.getElementById('chat-form');
 const chatMessages = document.getElementById('chat-messages');
+const quickButtons = document.querySelectorAll('.quick-buttons .qb');
 
 function appendMessage(text, sender) {
     const msg = document.createElement('div');
@@ -40,5 +51,32 @@ chatForm.addEventListener('submit', async (e) => {
     chatMessages.lastChild.remove();
     appendMessage(data.response, 'bot');
 });
+
+quickButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (btn.id === 'bookRedirect') { window.location.href = '/login'; return; }
+        if (btn.dataset.cancel) {
+            const id = prompt('Enter Ticket ID to cancel:');
+            if (!id) return;
+            sendMessage(`cancel ticket ${id}`);
+            return;
+        }
+        const msg = btn.dataset.msg;
+        if (msg) sendMessage(msg);
+    });
+});
+
+async function sendMessage(text){
+    appendMessage(text, 'user');
+    appendMessage('...', 'bot');
+    const response = await fetch('/chatbot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+    });
+    const data = await response.json();
+    chatMessages.lastChild.remove();
+    appendMessage(data.response, 'bot');
+}
 </script>
 {% endblock %}

@@ -5,6 +5,7 @@ import stripe
 from flask_cors import CORS
 from models import db  # Import the db from model.py
 from chatbot import get_chatbot_response
+from uuid import uuid4
 import os
 
 
@@ -160,13 +161,14 @@ def payment(ticket_id):
 
 @app.route('/chatbot', methods=['GET', 'POST'])
 def chatbot():
+    if 'chatbot_session_id' not in session:
+        session['chatbot_session_id'] = str(uuid4())
     if request.method == 'POST':
-        data = request.get_json()
-        user_message = data.get('message')
-        bot_response = get_chatbot_response(user_message)
+        data = request.get_json() or {}
+        user_message = data.get('message', '')
+        bot_response = get_chatbot_response(user_message, session['chatbot_session_id'])
         return jsonify({"response": bot_response})
-    else:
-        return render_template('chatbot.html')  # Render the chatbot page if accessed via GET
+    return render_template('chatbot.html')
     
 @app.teardown_appcontext
 def shutdown_session(exception=None):
