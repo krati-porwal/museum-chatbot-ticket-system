@@ -15,3 +15,8 @@ WTForms
 model-viewer  
 flask_babel
 pymysql
+# QR and PDF generation packages
+qrcode
+Pillow
+reportlab
+python-dotenv

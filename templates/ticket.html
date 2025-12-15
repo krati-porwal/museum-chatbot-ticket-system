@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Ticket {{ ticket.id }}{% endblock %}
+{% block content %}
+<div style="max-width:520px;margin:24px auto;padding:20px;background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08);text-align:center;">
+  <h3>🎫 Ticket #{{ ticket.id }}</h3>
+  <p><strong>Name:</strong> {{ ticket.name }}</p>
+  <p><strong>Age:</strong> {{ ticket.age }}</p>
+  <p><strong>Email:</strong> {{ ticket.email }}</p>
+
+  <div style="margin:16px 0;">
+    <img src="{{ qr_url }}" alt="Ticket QR" style="width:260px;height:260px;border-radius:8px;border:1px solid #eee;">
+  </div>
+
+  <a href="{{ qr_url }}" download="ticket_{{ ticket.id }}.png" class="btn btn-primary" style="background:#2f62d6;border:none;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;">
+    Download QR
+  </a>
+  <p style="margin-top:12px;font-size:0.95rem;color:#666;">Please show this QR at the museum entrance.</p>
+</div>
+{% endblock %}
