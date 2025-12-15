@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Validate Ticket {{ ticket.id }}{% endblock %}
+{% block content %}
+<div style="max-width:520px;margin:24px auto;padding:20px;background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08);text-align:center;">
+  <h3>Validate Ticket #{{ ticket.id }}</h3>
+  <p><strong>Name:</strong> {{ ticket.name }}</p>
+  <p><strong>Email:</strong> {{ ticket.email }}</p>
+  {% if valid %}
+    <p style="color:green;font-weight:700;">Valid - Paid</p>
+  {% else %}
+    <p style="color:red;font-weight:700;">Invalid - Not paid or QR missing</p>
+  {% endif %}
+</div>
+{% endblock %}

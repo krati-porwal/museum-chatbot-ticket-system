@@ -7,36 +7,55 @@
     box-sizing: border-box;
 }
 
+:root {
+    --light-bg: #e6f9ff;   /* plain light blue background */
+    --brand-text: #0b3d91; /* dark blue for text */
+    --icon-color: #0b3d91; /* dark blue for icons */
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    color: white;
+    /* Plain light-blue page background (no gradient) */
+    background: var(--light-bg);
+    color: var(--brand-text); /* dark text for contrast on light background */
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;
 }
 
-/* Animated Background */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-    animation: backgroundShift 20s ease-in-out infinite;
-    z-index: -2;
+/* Global overrides to make site text and icons dark-blue where appropriate.
+   These are conservative overrides so buttons and special highlights keep their
+   styles unless explicitly changed. */
+.nav-brand,
+.nav-link,
+.nav-link a,
+.auth-header h2,
+.auth-header p,
+.form-label,
+.form-input,
+.footer-section ul li a,
+.section-header p {
+    color: var(--brand-text) !important;
 }
 
-@keyframes backgroundShift {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    33% { transform: scale(1.1) rotate(1deg); }
-    66% { transform: scale(0.9) rotate(-1deg); }
+.nav-brand i,
+.auth-icon,
+.feature-icon,
+.action-icon,
+.floating-element {
+    color: var(--icon-color) !important;
 }
+
+/* Ensure hero title uses solid dark color instead of clipped gradient */
+.hero-title {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    color: var(--brand-text) !important;
+}
+
+/* Animated background removed for a cleaner, professional look */
 
 /* 3D Background Canvas */
 #bg-canvas {
@@ -47,6 +66,9 @@ body::before {
     height: 100%;
     z-index: -1;
 }
+
+/* hide optional 3D canvas by default for a cleaner layout */
+#bg-canvas { display: none; }
 
 /* Modern Navigation */
 .modern-nav {
@@ -83,8 +105,8 @@ body::before {
 
 .nav-brand i {
     font-size: 2rem;
-    color: #ff00ff;
-    animation: glow 2s ease-in-out infinite alternate;
+    color: #0f0051;
+    /* animation: glow 2s ease-in-out infinite alternate; */
 }
 
 @keyframes glow {
@@ -222,6 +244,7 @@ body::before {
     margin-bottom: 0.5rem;
     background: linear-gradient(45deg, #ff00ff, #00ffff, #ff69b4);
     background-size: 200% 200%;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 3s ease-in-out infinite;
@@ -254,13 +277,14 @@ body::before {
 .form-input {
     width: 100%;
     padding: 1rem 1rem 1rem 3rem;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: rgba(255, 255, 255, 0.95);
+    color: rgb(0, 0, 0);
     font-size: 1rem;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    padding-left: 40px;
 }
 
 .form-input:focus {
@@ -310,7 +334,7 @@ body::before {
 .checkmark {
     width: 18px;
     height: 18px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(12, 0, 57, 0.865);
     border-radius: 4px;
     position: relative;
     transition: all 0.3s ease;
@@ -518,6 +542,7 @@ body::before {
     margin-bottom: 1rem;
     background: linear-gradient(45deg, #ff00ff, #00ffff, #ff69b4, #ff00ff);
     background-size: 300% 300%;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 3s ease-in-out infinite, float 6s ease-in-out infinite;
@@ -666,20 +691,21 @@ body::before {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: white;
+    color: darkblue;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .form-input {
     width: 100%;
     padding: 1rem;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: rgba(255, 255, 255, 0.95);
+    color: rgb(0, 0, 0);
     font-size: 1rem;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    padding-left: 40px; 
 }
 
 .form-input:focus {
@@ -847,7 +873,7 @@ body::before {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.1);
-    color: white;
+    color: rgb(0, 0, 0);
     backdrop-filter: blur(10px);
 }
 
@@ -939,6 +965,7 @@ body::before {
     font-weight: 700;
     background: linear-gradient(45deg, #ff00ff, #00ffff, #ff69b4);
     background-size: 200% 200%;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 3s ease-in-out infinite;
